@@ -14,23 +14,37 @@
                             </div>
                         @endif
 
-                            showです
-                            {{ $contact->your_name }}
-                            {{ $contact->title }}
-                            {{ $contact->email }}
-                            {{ $contact->url }}
-                            {{ $gender }}
-                            {{ $age }}
-                            {{ $contact->contact }}
-{{--                            <form method="POST" action="">--}}
-                            <form method="GET" action="">
-                                @csrf
+                        showです
+                        {{ $contact->your_name }}
+                        {{ $contact->title }}
+                        {{ $contact->email }}
+                        {{ $contact->url }}
+                        {{ $gender }}
+                        {{ $age }}
+                        {{ $contact->contact }}
+                        {{--                            <form method="POST" action="">--}}
+                        <form method="GET" action="{{ route('contact.edit', ['id' => $contact->id])}}">
+                            @csrf
 
-                                <input class="btn btn-info" type="submit" value="変更する">
-                            </form>
+                            <input class="btn btn-info" type="submit" value="変更する">
+                        </form>
+                        <form method="POST" action="{{ route('contact.destroy', ['id' => $contact->id])}}"
+                              id="delete{{ $contact->id }}">
+                            @csrf
+                            <a href="#" class="btn btn-danger" data-id="{{ $contact->id }}" onclick="deletePost(this);">削除する</a>
+                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function deletePost(e) {
+            'use strict';
+            if (confirm('本当に削除していいですか?')) {
+                document.getElementById('delete_' + e.dataset.id).submit();
+            }
+        }
+    </script>
 @endsection
