@@ -35,7 +35,7 @@ Route::group(['prefix' => 'message', 'middleware' => 'auth'], function (){
     Route::get('index', 'MessagesController@index')->name('message.index');
     Route::get('create', 'MessagesController@create')->name('message.create');
     Route::post('store', 'MessagesController@store')->name('message.store');
-    Route::get('show/{id}', 'MessagesController@show')->name('message.show');
+//    Route::get('show/{id}', 'MessagesController@show')->name('message.show');
     Route::get('edit/{id}', 'MessagesController@edit')->name('message.edit');
     Route::post('update/{id}', 'MessagesController@update')->name('message.update');
     Route::post('destroy/{id}', 'MessagesController@destroy')->name('message.destroy');
