@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Messages;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StoreMessages;
 
 class MessagesController extends Controller
 {
@@ -43,7 +44,7 @@ class MessagesController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreMessages $request)
     {
         //
         //Requestこれでスーパーグローバル変数と同じことできる
