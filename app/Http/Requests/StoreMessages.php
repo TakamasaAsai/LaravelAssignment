@@ -25,12 +25,7 @@ class StoreMessages extends FormRequest
     {
         return [
             //
-            'title' => 'string',
-            function ($attribute, $value, $fail) {
-                if (strlen($value)>200) {
-                    return $fail('200バイト以内で入力してください。');
-                }
-            }
+            'title' => 'required|string|max:90',
         ];
     }
 }

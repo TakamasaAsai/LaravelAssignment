@@ -92,7 +92,8 @@ class MessagesController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+//    public function update(Request $request, $id)
+    public function update(StoreMessages $request, $id)
     {
         //
         $message = Messages::find($id);
