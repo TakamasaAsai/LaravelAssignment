@@ -14,7 +14,7 @@
                             </div>
                         @endif
                         <form method="GET" action="{{ route('message.create') }}">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary btn-lg">
                                 投稿
                             </button>
                         </form>
@@ -30,7 +30,7 @@
                                                   action="{{ route('message.edit', ['id' => $message->id])}}">
                                                 @csrf
 
-                                                <input class="btn btn-success" type="submit" value="変更する">
+                                                <input class="btn btn-outline-info" type="submit" value="変更する">
                                             </form>
                                         </td>
                                         <td>
@@ -38,7 +38,8 @@
                                                   action="{{ route('message.destroy', ['id' => $message->id])}}"
                                                   id="delete{{ $message->id }}">
                                                 @csrf
-                                                <input class="btn btn-danger" type="submit" onclick="deletePost(this);"
+                                                <input class="btn btn-outline-dark" type="submit"
+                                                       onclick="deletePost(this);"
                                                        value="削除する">
                                             </form>
                                         </td>

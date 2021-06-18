@@ -24,19 +24,8 @@
                             </div>
                         @endif
 
-
-{{--                        createです--}}
-                        {{--                            <form method="POST" action="">--}}
                         <form method="POST" action="{{route('message.store')}}">
                             @csrf
-{{--                            <br>--}}
-{{--                            件名--}}
-{{--                            <input type="text" name="title">--}}
-{{--                            <br>--}}
-{{--                            本文--}}
-{{--                            <textarea name="message"></textarea>--}}
-{{--                            <br>--}}
-{{--                            <input class="btn btn-info" type="submit" value="投稿する">--}}
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">件名</label>
                                 <input type="text" class="form-control" id="exampleFormControlInput1" name="title">

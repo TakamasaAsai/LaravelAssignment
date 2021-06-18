@@ -16,7 +16,7 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
             //id,title(vc,not null,200byte以上エラー),message(not null),created_at,updated_at
-            $table->string('title', 50);
+            $table->string('title', 200);
             $table->longText('message');
             $table->timestamps();//両方カバ-できるcreated_at,updated_at
         });

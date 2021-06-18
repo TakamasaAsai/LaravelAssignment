@@ -25,15 +25,12 @@ class StoreMessages extends FormRequest
     {
         return [
             //
-            'title' => 'string|max:200'
-//            'title' => [
-//        'required','string',
-//        function ($attribute, $value, $fail) {
-//            if (strlen($value) > 30) {
-//                return $fail('30バイト以内で入力してください。');
-//            }
-//        }
-//    ]
+            'title' => 'string',
+            function ($attribute, $value, $fail) {
+                if (strlen($value)>200) {
+                    return $fail('200バイト以内で入力してください。');
+                }
+            }
         ];
     }
 }
