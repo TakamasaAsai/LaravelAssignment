@@ -25,7 +25,8 @@ class StoreMessages extends FormRequest
     {
         return [
             //
-            'title' => 'required|string|max:90',
+            'title' => 'required|string|max:89',
+            'message'=> 'required|string',
         ];
     }
 }

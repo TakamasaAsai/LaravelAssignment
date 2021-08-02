@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\MessagesRepository;
 use http\Message;
 use Illuminate\Http\Request;
 
@@ -12,18 +13,29 @@ use App\Http\Requests\StoreMessages;
 class MessagesController extends Controller
 {
     /**
+     * @var MessagesRepository
+     */
+    private $messagesRepository;
+    public function __construct(MessagesRepository $messagesRepository)
+    {
+        $this->messagesRepository = $messagesRepository;
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //クエリビルダ
-        $messages = DB::table('messages')
-            ->select('id', 'title', 'message', 'created_at')
-            ->orderBy('id', 'desc')
-            ->get();
+        //Repositoryパターン
+        $messages = $this->messagesRepository->all();
         return view('message.index', compact('messages'));
+
+        //Modelパターン
+//        $messages = Messages::getMessages();
+//        return view('message.index', compact('messages'));
     }
 
     /**
