@@ -29,6 +29,7 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('message_tag');
         Schema::dropIfExists('messages');
     }
 }
