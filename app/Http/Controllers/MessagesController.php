@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\MessagesRepository;
-use http\Message;
-use Illuminate\Http\Request;
-
 use App\Models\Messages;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreMessages;
 
 class MessagesController extends Controller
@@ -29,13 +25,10 @@ class MessagesController extends Controller
 
     public function index()
     {
-        //Repositoryパターン
+
         $messages = $this->messagesRepository->all();
         return view('message.index', compact('messages'));
 
-        //Modelパターン
-//        $messages = Messages::getMessages();
-//        return view('message.index', compact('messages'));
     }
 
     /**

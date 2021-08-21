@@ -3,18 +3,25 @@
 
 namespace App\Repositories;
 
-
-use Illuminate\Support\Facades\DB;
+use App\Models\Messages;
 
 class MessagesRepository
 {
+//    コンストラクタの追加、コンストラクタでnewする
+    private $messages;
+    public function __construct(Messages $messages)
+    {
+        $this->messages = $messages;
+    }
     public function all()
     {
-        //クエリビルダ
-        return $messages = DB::table('messages')
-            ->select('id', 'title', 'message', 'created_at')
-            ->orderBy('id', 'desc')
-            ->get();
+//        Repositoryではクエリの処理のみを書く
+//        \Facades\DBはRepositoryで使わない
+        $messages = $this->messages;
+        return $messages
+        ->select('id', 'title', 'message', 'created_at')
+        ->orderBy('id', 'desc')
+        ->get();
     }
 
 }
